@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <button id="btn" onclick="">
+        dianwo
+    </button>
+    <div id="div1">jaja</div>
+    <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+    <script>
+//        基本类型：number，string，boolean，undefined，null 放在栈中
+//        引用类型（对象类型） 内置对象（自带的）  DOM对象（document　object）（html标签）　自定义对象
+        var a=5;
+        var b = 6;
+        var c = '5';
+        console.log(a === c); //全等 值和类型都一样  false
+        console.log(a==c);  //值相等  ture
+        var answer='a';
+        console.log( answer=='a'?'ture':'no'); //三目运算符   如果前面相等 返回ture  否则no
+
+        function aa(str){
+            alert(str);
+        }
+        aa('haha');
+        function bb(s,y,j){        //函数声明 可以先调用aa（）；  后写函数
+            alert(s + '她的年龄是'+ y + '她的性别是' + j);
+        }
+        bb('lisi',34,'nv');//如果没有nv 不报错 输出 undefined   如果输入多了  多一个数   alert里面可以用arguments【4】输出
+        var aa = function aa(str){    //函数表达式 不可以先调用 aa（）；
+            alert(s + '她的年龄是'+ y + '她的性别是' + j);
+        }
+        var abc = document.getElementById('btn');
+//        abc.id='btn1';修改属性值
+        abc.onclick = function(){
+            alert('hehe');
+            var div=document.getElementById('div1');
+            div.style.background='red';
+        };
+        alert(aa.innerHTML);//aa的值   innerhtml是内部值  但是内置对象没有innerhtml   比如数组
+        document.getElementsByTagName('li');
+        for(var i=0;i<li.length;i++){
+            li[i].onclick= function () {
+                alert(this.innerHTML);  //li[i]没有innerhtml属性
+                //byclassname   i8以上不支持
+            };
+        }
+    </script>
+</body>
+</html>
