@@ -27,6 +27,8 @@
            display: block;
         }
        #menu .sub-menu{
+            width: 120px;
+            height: 30px;
             background: #eeeeee;
             display: none;
         }
@@ -45,15 +47,7 @@
 
 </head>
 <body>
-    <script>
-        var a=5;
-        var b = 6;
-        var c = '5';
-        console.log(a === c); //全等 值和类型都一样  false
-        console.log(a==c);  //值相等  ture
-        var answer='a';
-        console.log( answer=='a'?'ture':'no'); //三目运算符   如果前面相等 返回ture  否则no
-    </script>
+
      <!--属性后面加!improtant 提高优先级，但不推荐-->
      <ul id="menu">
          <li>
@@ -81,5 +75,54 @@
              </ul>
          </li>
      </ul>
+    <script>
+        var oMenu = document.getElementById('menu');
+
+
+        var aMainMenu = oMenu.getElementsByTagName('a');
+        var aSubMenu = oMenu.getElementsByTagName('ul');
+          var count=0;
+        for(var i=0;i<aMainMenu.length;i++){
+           if(aMainMenu[i].className == 'main-menu') {
+                      aMainMenu[i].index=count++;
+                       aMainMenu[i].onmouseover=function(){
+                           aSubMenu[this.index].style.display='block';
+               };
+                        aMainMenu[i].onmouseout=function(){
+                             aSubMenu[this.index].style.display='none';
+                        };
+           }
+        }
+//        不考虑byclass的兼容性，代码如下
+
+//        var aMainMenu = oMenu.getElementsByClassName('main-menu');
+//        var aSubMenu = oMenu.getElementsByTagName('ul');
+//        for(var i=0;i<aMainMenu.length;i++){
+//            aMainMenu[i].index=i;   //把每次的i先存起来
+//                aMainMenu[i].onmouseover=function(){
+//                    aSubMenu[this.index].style.display='block';   //因为划入之前for就加载在完了  i到最大值了  所以aSubMenu【i】找不到,所以先把i存起来
+//                };
+//            aMainMenu[i].onmouseout=function(){
+//                aSubMenu[this.index].style.display='none';
+//            };
+//            }
+
+
+
+//        如果menu加到li身上而不是a上
+//        var oMenu = document.getElementById('menu');
+//        var aLi = oMenu.children;
+//        for(var i = 0;i < aLi.length;i++){
+//            aLi.onmouseover= function () {
+//                this.children[1].style.display='block';
+////                this.getElementsByTagName('ul')[0].style.display='block';
+//            }
+//            aLi.onmouseover= function () {
+//                this.children[1].style.display='none';
+////                this.getElementsByTagName('ul')[0].style.display='none';
+//            }
+//        }
+//
+    </script>
 </body>
 </html>
