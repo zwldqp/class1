@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>多级导航菜单</title>
+    <style>
+         /*样式重置*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu li{      /*  用 menu > li表示1级li ie6不支持*/
+            float: left;
+            margin-right: 5px;
+        }
+       #menu .main-menu{
+            width: 120px;
+            height: 30px;
+            line-height: 30px;
+            background: #cccccc;
+           display: block;
+        }
+       #menu .sub-menu{
+            background: #eeeeee;
+            display: none;
+        }
+       #menu .sub-menu li{
+            float: none;
+            border-bottom: 1px dotted #000;
+            height: 25px;
+            line-height: 25px;
+        }
+       /*不借助js实现滑动出现列表 用hover    ie6不支持，只支持hover用在a标签上*/
+        /*#menu > li:hover .sub-menu{              */
+            /*display: block;*/
+        /*}*/
+        
+    </style>
+</head>
+<body>
+     <!--属性后面加!improtant 提高优先级，但不推荐-->
+     <ul id="menu">
+         <li>
+             <a href="" class="main-menu">link1</a>
+             <ul class="sub-menu">
+                 <li><a href="#">sublink1</a></li>
+                 <li><a href="#">sublink2</a></li>
+                 <li><a href="#">sublink3</a></li>
+             </ul>
+         </li>
+         <li>
+             <a href="" class="main-menu">link2</a>
+             <ul class="sub-menu">
+                 <li><a href="#">sublink1</a></li>
+                 <li><a href="#">sublink2</a></li>
+                 <li><a href="#">sublink3</a></li>
+             </ul>
+         </li>
+         <li>
+             <a href="" class="main-menu">link3</a>
+             <ul class="sub-menu">
+                 <li><a href="#">sublink1</a></li>
+                 <li><a href="#">sublink2</a></li>
+                 <li><a href="#">sublink3</a></li>
+             </ul>
+         </li>
+     </ul>
+</body>
+</html>
